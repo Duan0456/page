@@ -151,4 +151,28 @@
 			 and create_time = #{createTime} 
 		</if>
 	</select>
+
+	<!-- 检查订单过期-->
+	<update id="check" parameterType="nuc.edu.exercise.model.SeckillOrder" >
+		UPDATE seckill_order
+		<set>
+			<if test="state != null">
+				state = #{state},
+			</if>
+		</set>
+		WHERE create_time &lt; DATE_SUB(NOW(), INTERVAL 3 MINUTE)
+		AND state = 1
+	</update>
+
+	<!-- 支付-->
+	<update id="pay" parameterType="nuc.edu.exercise.model.SeckillOrder" >
+		UPDATE seckill_order
+		<set>
+			<if test="state != null">
+				state = 2,
+			</if>
+		</set>
+		WHERE id = #{id}
+		AND state = 1
+	</update>
 </mapper>

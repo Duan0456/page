@@ -1,6 +1,9 @@
 package nuc.edu.exercise.model;
 
+import lombok.Data;
+
 import java.time.LocalDateTime;
+import java.util.Date;
 
 
 /**
@@ -8,6 +11,7 @@ import java.time.LocalDateTime;
  * 订单表
  * 
  **/
+@Data
 public class SeckillOrder{
 
 
@@ -31,9 +35,29 @@ public class SeckillOrder{
   private String productName;
 
 
+  public Date getCreateTime() {
+    return createTime;
+  }
+
+  public void setCreateTime(Date createTime) {
+    this.createTime = createTime;
+  }
+
   /**创建时间**/
 
-  private LocalDateTime createTime;
+  private Date createTime;
+//  private LocalDateTime createTime;
+
+  public int getState() {
+    return state;
+  }
+
+  public void setState(int state) {
+    this.state = state;
+  }
+
+  /**订单状态**/
+  private int state;
 
 
 
@@ -78,13 +102,13 @@ public class SeckillOrder{
   }
 
 
-  public void setCreateTime(LocalDateTime createTime) {
-    this.createTime = createTime;
-  }
-
-
-  public LocalDateTime getCreateTime() {
-    return this.createTime;
-  }
+//  public void setCreateTime(LocalDateTime createTime) {
+//    this.createTime = createTime;
+//  }
+//
+//
+//  public LocalDateTime getCreateTime() {
+//    return this.createTime;
+//  }
 
 }

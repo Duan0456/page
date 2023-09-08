@@ -1,5 +1,6 @@
 package nuc.edu.exercise.service.impl;
 
+import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import nuc.edu.exercise.base.BaseResponse;
 import nuc.edu.exercise.dao.SeckillOrderDao;
@@ -10,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 @Service
 @Slf4j
@@ -20,7 +22,9 @@ public class BaseImpl implements Base4 {
     @Override
     public BaseResponse insert(SeckillOrder order) {
         LocalDateTime currentTime = LocalDateTime.now();
-        order.setCreateTime(currentTime);
+        Date date = new Date();
+        order.setCreateTime(date);
+//        order.setCreateTime(currentTime);
         if(order == null){
             return BaseResponse.error(ErrorMessage.ORDER_ERROR);
         }

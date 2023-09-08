@@ -11,4 +11,6 @@ public class SeckillReq implements Serializable {
     private Long productId;
 
     private Long userId;
+
+    private Long id;
 }

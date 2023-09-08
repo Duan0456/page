@@ -4,6 +4,7 @@ import java.util.List;
 import nuc.edu.exercise.model.SeckillUser;
 //import nuc.edu.search.util.bean.CommonQueryBean;
 
+import nuc.edu.exercise.util.bean.CommonQueryBean;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -50,7 +51,7 @@ public interface SeckillUserDao{
 	 * list分页查询
 	 * 
 	 **/
-//	List<SeckillUser> list4Page ( SeckillUser record, @Param("commonQueryParam") CommonQueryBean query);
+	List<SeckillUser> list4Page ( SeckillUser record, @Param("commonQueryParam") CommonQueryBean query);
 
 	/**
 	 * 

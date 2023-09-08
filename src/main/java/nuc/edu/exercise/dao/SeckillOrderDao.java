@@ -4,6 +4,7 @@ import java.util.List;
 import nuc.edu.exercise.model.SeckillOrder;
 //import nuc.edu.search.util.bean.CommonQueryBean;
 
+import nuc.edu.exercise.util.bean.CommonQueryBean;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -50,7 +51,7 @@ public interface SeckillOrderDao{
 	 * list分页查询
 	 * 
 	 **/
-//	List<SeckillOrder> list4Page ( SeckillOrder record, @Param("commonQueryParam") CommonQueryBean query);
+	List<SeckillOrder> list4Page ( SeckillOrder record, @Param("commonQueryParam") CommonQueryBean query);
 
 	/**
 	 * 
@@ -65,5 +66,9 @@ public interface SeckillOrderDao{
 	 * 
 	 **/
 	List<SeckillOrder> list ( SeckillOrder record);
+
+	int check(@Param("state") int state);
+
+	int pay(SeckillOrder record);
 
 }
